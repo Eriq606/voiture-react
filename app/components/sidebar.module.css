@@ -1,0 +1,38 @@
+.sidebar{
+    background-color: cornflowerblue;
+    width: 15%;
+    height: 100vh;
+    float: left;
+}
+.sidebar__items{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top: 25px;
+}
+.sidebar__items__item{
+    display: flex;
+    align-items: center;
+    height: 60px;
+    width: 85.75%;
+    padding: 20px;
+    font-size: 17.5px;
+    color: black;
+    text-decoration: none;
+}
+.sidebar__items__item:hover{
+    background-color: rgb(173, 194, 233);
+    cursor: pointer;
+}
+.userprofile{
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    padding: 20px;
+}
+.userprofile__image{
+    border-radius: 100%;
+}
+.userprofile__user{
+    margin-left: 10px;
+}
