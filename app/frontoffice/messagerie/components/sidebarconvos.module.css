@@ -1,0 +1,21 @@
+.sidebarconvos{
+    border-right: solid 1px cornflowerblue;
+    height: 100vh;
+    width: 17.5%;
+    float: left;
+}
+.sidebarconvos__conversation{
+    margin-top: 25px;
+}
+.sidebarconvos__conversation__item{
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: black;
+    text-decoration: none;
+}
+.sidebarconvos__conversation__item:hover{
+    background-color: rgba(128, 128, 128, 0.555);
+    cursor: pointer;
+}

@@ -1,14 +1,12 @@
 import { BsCardList, BsChat, BsFillPhoneFill, BsFillStarFill } from "react-icons/bs";
 import { BsClockHistory } from "react-icons/bs";
-import styles from '@/app/components/sidebar.module.css'
-import Image from "next/image";
+import styles from '@/app/frontoffice/components/sidebar.module.css';
 import Link from "next/link";
 export default function SideBar(){
     return(
         <>
             <div className={styles.sidebar}>
                 <div className={styles.userprofile}>
-                    <Image src="/images.png" width={50} height={50} alt="user picture" className={styles.userprofile__image}></Image>
                     <p className={styles.userprofile__user}>User</p>
                 </div>
                 <div className={styles.sidebar__items}>

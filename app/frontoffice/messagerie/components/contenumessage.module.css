@@ -1,0 +1,60 @@
+.contenumessage{
+    float: left;
+    width: 1250px;
+    height: 100vh;
+    background-color: rgb(156, 156, 156);
+}
+.contenumessage__conversation{
+    width: 85%;
+    margin-top: 7.5%;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    margin-bottom: 3%;
+    height: 75vh;
+    overflow-y: auto;
+}
+.contenumessage__conversation__dialogue__autre{
+    width: 30%;
+    margin-bottom: 20px;
+}
+.contenumessage__conversation__dialogue__self{
+    width: 30%;
+    margin-left: 65%;
+    margin-bottom: 20px;
+}
+.contenumessage__conversation__dialogue__label__autre{
+    text-align: left;
+}
+.contenumessage__conversation__dialogue__label__self{
+    text-align: right;
+}
+.contenumessage__conversation__dialogue__bulle__autre{
+    border: solid 1px rgb(35, 35, 73);
+    background-color: white;
+    padding: 10px;
+}
+.contenumessage__conversation__dialogue__bulle__self{
+    border: solid 1px rgb(63, 63, 63);
+    background-color: rgb(109, 160, 255);
+    padding: 10px;
+}
+.contenumessage__userinput{
+    margin-left: 7.5%;
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+}
+.contenumessage__userinput__input{
+    width: 90%;
+    height: 40px;
+    padding: 15px;
+    font-size: large;
+}
+.contenumessage__userinput__sendbutton__icon{
+    width: 65px;
+    rotate: 45deg;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
