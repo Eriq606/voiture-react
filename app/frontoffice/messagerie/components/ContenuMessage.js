@@ -1,5 +1,6 @@
 import { BsFillSendFill } from "react-icons/bs";
 import styles from "@/app/frontoffice/messagerie/components/contenumessage.module.css";
+import { Card, CardBody } from "react-bootstrap";
 
 export default function ContenuMessage({messagerie, current_user}){
     let classname_message, classname_bubble, person, classname_label;
