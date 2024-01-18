@@ -18,13 +18,13 @@ export const response_messagerie={
             echanges:[
                 {
                     envoyeur:{
-                        idUtilisateur: 2,
+                        idUtilisateur: 3,
                         email: "u2@gmail.com",
                         motDePasse: "1234",
                         isAdmin: 0
                     },
                     recepteur:{
-                        idUtilisateur: 3,
+                        idUtilisateur: 2,
                         email: "u3@gmail.com",
                         motDePasse: "1234",
                         isAdmin: 0
