@@ -11,7 +11,7 @@ export default function Layout({ children }) {
           <Col md={2} className='mt-5'>
             <VerticalMenu />
           </Col>
-          <Col md={10}>
+          <Col md={10} className='mt-5'>
             {children}
           </Col>
         </Row>

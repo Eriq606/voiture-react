@@ -3,10 +3,10 @@ import '../assets/assets/css/demo.css';
 import '../assets/assets/vendor/css/core.css';
 import '../assets/assets/vendor/css/theme-default.css';
 
-function Button({couleur_theme = 'btn btn-info', label = 'rechercher', fonction}) {
+function Button({couleur_theme = 'btn btn-info', label = 'rechercher', type = "button", fonction}) {
   return (
     <>
-        <button type="button" className={couleur_theme} onClick={fonction}>{label}</button>
+        <button type={type} className={couleur_theme} onClick={fonction}>{label}</button>
     </>
   );
 }
