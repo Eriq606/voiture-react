@@ -18,12 +18,12 @@ export default function Login () {
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Entrez l'addresse email" required/>
+            <Form.Control type="email" placeholder="Entrez l'addresse email" value="admin@gmail.com" required/>
           </Form.Group>
     
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Mot de passe</Form.Label>
-            <Form.Control type="password" placeholder="Entrez le mot de passe" required />
+            <Form.Control type="password" placeholder="Entrez le mot de passe" value="1234" required />
           </Form.Group>
           <Button variant="primary" type="submit">
             Se connecter

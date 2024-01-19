@@ -9,9 +9,11 @@ const VerticalMenu = () => {
     <Nav defaultActiveKey="/home" className="flex-column">
       <Nav.Item>
         <DropdownButton id="dropdown-basic-button" title="Gestion criteres">
-          <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+          <Dropdown.Item href="#/action-1">Categorie</Dropdown.Item>
+          <Dropdown.Item href="#/action-1">Modele</Dropdown.Item>
+          <Dropdown.Item href="#/action-1">Type occasion</Dropdown.Item>
+          <Dropdown.Item href="#/action-1">Couleur</Dropdown.Item>
+          <Dropdown.Item href="#/action-1">Marque</Dropdown.Item>
         </DropdownButton>
       </Nav.Item>
       <Nav.Item>
