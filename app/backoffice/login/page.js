@@ -9,10 +9,6 @@ export default function page () {
         justifyContent: "center", // Centre le contenu verticalement
     };
 
-    const cardStyle = {
-        
-    }
-
     return (
         <Container style={containerStyle}>
             <Card>
