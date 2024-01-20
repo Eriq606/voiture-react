@@ -3,9 +3,10 @@ import '../assets/assets/css/demo.css';
 import '../assets/assets/vendor/css/core.css';
 import '../assets/assets/vendor/css/theme-default.css';
 import Button from 'react-bootstrap/Button';
-import DetailAnnonce from './DetailAnnonce';
+import Modal from 'react-bootstrap/Modal';
+import ValiderAnnonce from './ValiderAnnonce';
 
-function ButtonModal({clazz = 'btn btn-info', label = 'rechercher', annonce = null}) {
+function ButtonValiderAnnonce({clazz = 'btn btn-info', label = 'valider', annonce = null}) {
     const [modalShow, setModalShow] = React.useState(false);
 
     return (
@@ -14,7 +15,7 @@ function ButtonModal({clazz = 'btn btn-info', label = 'rechercher', annonce = nu
           {label}
         </Button>
   
-        <DetailAnnonce
+        <ValiderAnnonce
           show={modalShow}
           onHide={() => setModalShow(false)}
           annonce={annonce}
@@ -23,4 +24,4 @@ function ButtonModal({clazz = 'btn btn-info', label = 'rechercher', annonce = nu
     );
 }
 
-export default ButtonModal;
+export default ButtonValiderAnnonce;
