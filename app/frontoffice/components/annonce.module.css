@@ -1,20 +1,16 @@
 .annonce{
     border: gray solid 1px;
-    border-radius: 15px;
+    border-radius: 2.5%;
     padding: 25px;
 }
 .annonce__cardheader{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
 }
 .annonce__cardheader__user{
     display: flex;
     align-items: center;
-}
-.annonce__cardheader__user__image{
-    border-radius: 100%;
 }
 .annonce__cardfooter{
     display: flex;
@@ -42,8 +38,7 @@
     content: "\2606";
 }
 .annonce__cardfooter__details{
-    margin-top: 32.5px;
-    padding: 10px;
+    padding: 2.5%;
     font-size: medium;
 }
 .annonce__modal{

@@ -1,11 +1,12 @@
 'use client';
 
 import Image from "next/image";
-import styles from "@/app/frontoffice/listeannonce/components/annonce.module.css";
+import styles from "@/app/frontoffice/components/annonce.module.css";
 import { useState } from "react";
 import ReactModal from "react-modal";
 import { NumericFormat } from "react-number-format";
 import { BsArrowLeft, BsArrowRight, BsX } from "react-icons/bs";
+import { Button, Form } from "react-bootstrap";
 export default function Annonce({annonce}){
     const [showModal, setShowModal] = useState(false);
     const [currentImgIndex, setCurrentImgIndex] = useState(0);
@@ -34,6 +35,10 @@ export default function Annonce({annonce}){
             setCurrentImg(annonce.listePhotos[currentImgIndex].repertoire);
         }
     }
+    const [favori, setFavori] = useState(annonce.favoris);
+    function changeFavori(){
+        setFavori(!favori);
+    }
     return(<>
         <div className={styles.annonce}>
             <div className={styles.annonce__cardheader}>
@@ -43,10 +48,18 @@ export default function Annonce({annonce}){
             <p>Voiture : {annonce.marque.nomMarque} {annonce.modele.nomModele} {annonce.couleur.nomCouleur}</p>
             <div className={styles.annonce__cardfooter}>
                 <div className={styles.annonce__cardfooter__favori}>
-                    <input className={styles.annonce__cardfooter__favori__icon} type="checkbox" defaultChecked={annonce.favoris?'':'checked'}></input>
-                    <p className={styles.annonce__cardfooter__favori__label}>Favori</p>
+                    <Form.Check // prettier-ignore
+                        type={"checkbox"}
+                        id={`default-checkbox`}
+                        label={`Favori`}
+                        defaultChecked={favori}
+                        onClick={changeFavori}
+                    />
                 </div>
-                <button className={styles.annonce__cardfooter__details} onClick={openModal}>Details</button>
+                {/* <button className={styles.annonce__cardfooter__details} onClick={openModal}>Details</button> */}
+                <Button variant="primary" onClick={() => setModalShow(true)}>
+                    Details
+                </Button>
                 <ReactModal
                     isOpen={showModal}
                     onRequestClose={closeModal}
