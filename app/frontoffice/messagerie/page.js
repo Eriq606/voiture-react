@@ -1,5 +1,9 @@
+import { Col } from "react-bootstrap";
+
 export default function Page(){
     return(<>
-        <p>No conversation selected</p>
+        <Col md={6}>
+            <p>No conversation selected</p>
+        </Col>
     </>);
 }

@@ -1,10 +1,11 @@
 import { BsFillSendFill } from "react-icons/bs";
 import styles from "@/app/frontoffice/messagerie/components/contenumessage.module.css";
+import { Col } from "react-bootstrap";
 
 export default function ContenuMessage({messagerie, current_user}){
     let classname_message, classname_bubble, person, classname_label;
     return(<>
-        <div className={[styles.contenumessage, "hello"]}>
+        <Col md={6} className={styles.contenumessage}>
             <div className={styles.contenumessage__conversation}>
                 {messagerie.map((message, index)=>{
                     classname_message=message.envoyeur.idUtilisateur==current_user.utilisateur.idUtilisateur?styles.contenumessage__conversation__dialogue__self:styles.contenumessage__conversation__dialogue__autre;
@@ -25,6 +26,6 @@ export default function ContenuMessage({messagerie, current_user}){
                 <input type="text" placeholder="Message..." className={styles.contenumessage__userinput__input}></input>
                 <button><BsFillSendFill className={styles.contenumessage__userinput__sendbutton__icon}></BsFillSendFill></button>
             </div>
-        </div>
+        </Col>
     </>);
 }

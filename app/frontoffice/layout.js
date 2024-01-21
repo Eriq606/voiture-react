@@ -3,7 +3,7 @@ import SideBar from "./components/SideBar";
 export default function Layout({ children }) {
   return (
     <>
-    <Container>
+    <Container fluid>
       <div className="row g-0">
           <SideBar></SideBar>
           {children}

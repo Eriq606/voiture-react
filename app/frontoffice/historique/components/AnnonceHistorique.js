@@ -7,7 +7,7 @@ import ReactModal from "react-modal";
 import { NumericFormat } from "react-number-format";
 import { BsArrowLeft, BsArrowRight, BsX } from "react-icons/bs";
 import { Button, Form } from "react-bootstrap";
-export default function Annonce({annonce}){
+export default function AnnonceHistorique({annonce}){
     const [showModal, setShowModal] = useState(false);
     const [currentImgIndex, setCurrentImgIndex] = useState(0);
     function prevImageIndex(){
@@ -42,7 +42,7 @@ export default function Annonce({annonce}){
     return(<>
         <div className={styles.annonce}>
             <div className={styles.annonce__cardheader}>
-                <p>{annonce.proprietaire.email}</p>
+                <p>Moi</p>
                 <p>{annonce.dateHeureCreation}</p>
             </div>
             <p>Voiture : {annonce.marque.nomMarque} {annonce.modele.nomModele} {annonce.couleur.nomCouleur}</p>
@@ -85,9 +85,6 @@ export default function Annonce({annonce}){
                             <Image src={currentImg} width={300} height={200} alt="Car picture" className={styles.annonce__modal__body__images__image}></Image>
                             <button className={styles.annonce__modal__body__images__imgbutton} onClick={nextImage}><BsArrowRight/></button>
                         </div>
-                    </div>
-                    <div className={styles.annonce__modal__footer}>
-                        <button className={styles.annonce__modal__footer__contactbutton}>Contacter</button>
                     </div>
                 </ReactModal>
             </div>

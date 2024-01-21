@@ -1,8 +1,6 @@
 .sidebarconvos{
     border-right: solid 1px cornflowerblue;
     height: 100vh;
-    width: 17.5%;
-    float: left;
 }
 .sidebarconvos__conversation{
     margin-top: 25px;

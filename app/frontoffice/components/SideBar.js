@@ -6,7 +6,7 @@ import { Col } from "react-bootstrap";
 export default function SideBar(){
     return(
         <>
-            <Col xs={3} className={styles.sidebar}>
+            <Col md={3} className={styles.sidebar}>
                 <div className={styles.userprofile}>
                     <p>User</p>
                 </div>
