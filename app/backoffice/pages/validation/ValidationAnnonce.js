@@ -10,7 +10,7 @@ import {
   CardBody,
 } from "react-bootstrap";
 
-import Image from "react-bootstrap/Image";
+import Spinner from 'react-bootstrap/Spinner';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
@@ -23,6 +23,7 @@ export default function Validation() {
     const [session, setSession] = useState(null);
     const [allAnnonces, setAllAnnonces] = useState([]);
     const [error, setError] = useState(null);
+    const [wait, setWait] = useState(true);
 
     function formatDate (dateString) {
       const dateObject = new Date(dateString);
@@ -51,6 +52,7 @@ export default function Validation() {
             const annoncesNonValides = reponse.donnee;
             console.log(annoncesNonValides);
             setAllAnnonces(annoncesNonValides);
+            setWait(false);
           } else {
             setError(reponse.message);
           }
@@ -66,6 +68,7 @@ export default function Validation() {
         <strong>Validation des annonces</strong>
       </div>
       <Row className="mt-3">
+        {wait && (<Spinner animation="border" variant="success" />)}
         {allAnnonces.map((annonce, index) => (
           <Col className="mb-3" md={4} key={index}>
             <Card>
