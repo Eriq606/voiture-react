@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import styles from "@/app/frontoffice/components/annonce.module.css";
+import styles from "./annonce.module.css";
 import { useState } from "react";
 import ReactModal from "react-modal";
 import { NumericFormat } from "react-number-format";

@@ -1,5 +1,5 @@
 import { BsArrowRight } from "react-icons/bs";
-import styles from "@/app/frontoffice/messagerie/components/sidebarconvos.module.css";
+import styles from "./sidebarconvos.module.css";
 import Link from "next/link";
 import { Col } from "react-bootstrap";
 

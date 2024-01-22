@@ -1,5 +1,5 @@
 import Annonce from "../components/annonce";
-import styles from "@/app/frontoffice/listeannonce.module.css";
+import styles from "../listeannonce.module.css";
 import { reponse } from "../format_annonce";
 import Header from "../components/header";
 import { Col } from "react-bootstrap";

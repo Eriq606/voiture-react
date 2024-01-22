@@ -1,4 +1,4 @@
-import styles from "@/app/frontoffice/components/header.module.css";
+import styles from "./header.module.css";
 import { Button, Col, Form, Row } from "react-bootstrap";
 export default function Header(){
     return(<>

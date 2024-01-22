@@ -1,6 +1,6 @@
 import { BsCardList, BsChat, BsFillPhoneFill, BsFillStarFill } from "react-icons/bs";
 import { BsClockHistory } from "react-icons/bs";
-import styles from '@/app/frontoffice/components/sidebar.module.css';
+import styles from './sidebar.module.css';
 import Link from "next/link";
 import { Col } from "react-bootstrap";
 export default function SideBar(){

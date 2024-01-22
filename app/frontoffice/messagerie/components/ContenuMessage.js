@@ -1,5 +1,5 @@
 import { BsFillSendFill } from "react-icons/bs";
-import styles from "@/app/frontoffice/messagerie/components/contenumessage.module.css";
+import styles from "./contenumessage.module.css";
 import { Col } from "react-bootstrap";
 
 export default function ContenuMessage({messagerie, current_user}){

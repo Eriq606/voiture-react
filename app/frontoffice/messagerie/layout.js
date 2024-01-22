@@ -1,6 +1,6 @@
 'use client';
 
-import { curruser } from "@/app/format_curruser";
+import { curruser } from "../../format_curruser";
 import { response_messagerie } from "./format_user";
 import SideBarConvos from "./components/SidebarConvos";
 import { useEffect } from "react";

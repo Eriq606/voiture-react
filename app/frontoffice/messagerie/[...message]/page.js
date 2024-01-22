@@ -1,6 +1,6 @@
 import { response_messagerie } from "../format_user";
 import ContenuMessage from "../components/ContenuMessage";
-import { curruser } from "@/app/format_curruser";
+import { curruser } from "../../../format_curruser";
 
 export default function Page({params}){
     const sender=params.message[0];

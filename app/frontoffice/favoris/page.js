@@ -1,7 +1,7 @@
 import { Col } from "react-bootstrap";
 import Header from "../components/header";
 import { reponse } from "../format_annonce";
-import styles from "@/app/frontoffice/listeannonce.module.css";
+import styles from "../listeannonce.module.css";
 import Annonce from "../components/annonce";
 
 export default function Page(){
