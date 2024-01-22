@@ -10,20 +10,20 @@
 /******/ 			return installedModules[moduleId].exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
+/******/ 		var mymodule = installedModules[moduleId] = {
 /******/ 			i: moduleId,
 /******/ 			l: false,
 /******/ 			exports: {}
 /******/ 		};
 /******/
 /******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 		modules[moduleId].call(mymodule.exports, mymodule, mymodule.exports, __webpack_require__);
 /******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
+/******/ 		// Flag the mymodule as loaded
+/******/ 		mymodule.l = true;
 /******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
+/******/ 		// Return the exports of the mymodule
+/******/ 		return mymodule.exports;
 /******/ 	}
 /******/
 /******/
