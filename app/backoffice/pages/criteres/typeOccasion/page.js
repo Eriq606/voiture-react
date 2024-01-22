@@ -14,14 +14,12 @@ import {
 import Spinner from 'react-bootstrap/Spinner';
 import send_raw_post from "../../../../utils/Sender";
 import Alert from 'react-bootstrap/Alert';
-import { useRouter } from 'next/navigation';
 
-export default function Categories() {
-  const router = useRouter();
-  const [allCategorie, setAllCategorie] = useState(null);
+export default function TypeOccasions() {
+  const [allTypeOccasion, setAllTypeOccasion] = useState(null);
   const [session, setSession] = useState(null);
   const [wait, setWait] = useState(true);
-  const [newCategorie, setNewCategorie] = useState("");
+  const [newTypeOccasion, setNewTypeOccasion] = useState("");
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -34,7 +32,7 @@ export default function Categories() {
       getAllCriteres("https://vente-occaz-production.up.railway.app/api/v1", sess.donnee.token).then(reponse => {
           const criteres = reponse;
           console.log(criteres);
-          setAllCategorie(criteres.categories);
+          setAllTypeOccasion(criteres.typeOccasions);
           setWait(false);
       });
     }
@@ -50,9 +48,9 @@ export default function Categories() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const raw = {
-      nomCategorie : newCategorie 
+      nomTypeOccasion : newTypeOccasion 
     }
-    send_raw_post('https://vente-occaz-production.up.railway.app/api/v1/categories', raw, session.donnee.token).then((reponse) => {
+    send_raw_post('https://vente-occaz-production.up.railway.app/api/v1/type-occasions', raw, session.donnee.token).then((reponse) => {
       if(reponse.code != '200') {
         setError(reponse.message);
       } else {
@@ -66,7 +64,7 @@ export default function Categories() {
   return (
     <Container>
       <Card style={{ width: "50%", marginBottom: "2vh" }}>
-        <CardHeader>Creation de categorie</CardHeader>
+        <CardHeader>Creation de Type Occasion</CardHeader>
         <CardBody>
           <Row>
             <Col>
@@ -79,16 +77,16 @@ export default function Categories() {
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="entrez le nom de la categorie"
-                    aria-label="entrez le nom de la categorie"
+                    placeholder="entrez le nom du Type Occasion"
+                    aria-label="entrez le nom du Type Occasion"
                     aria-describedby="basic-addon11"
-                    onChange={(e) => {setNewCategorie(e.target.value)}}
-                    value={newCategorie}
+                    onChange={(e) => {setNewTypeOccasion(e.target.value)}}
+                    value={newTypeOccasion}
                     required
                   />
                   <Button
                     type="submit"
-                    couleur_theme="btn btn-warning"
+                    TypeOccasion_theme="btn btn-warning"
                     label="creer"
                   ></Button>
                 </div>
@@ -98,14 +96,14 @@ export default function Categories() {
         </CardBody>
       </Card>
       <Card>
-        <CardHeader>Liste des categories</CardHeader>
+        <CardHeader>Liste des Type Occasions</CardHeader>
         <CardBody>
           <Row>
           {wait && (<Spinner animation="border" variant="success" />)}
-          {allCategorie && allCategorie.map((categorie, index) => (
+          {allTypeOccasion && allTypeOccasion.map((TypeOccasion, index) => (
               <Col md={6} xl={4} key={index}>
               <div className={getColor(index)}>
-                <div className="card-header">{categorie.nomCategorie}</div>
+                <div className="card-header">{TypeOccasion.nomTypeOccasion}</div>
               </div>
             </Col>
             ))}

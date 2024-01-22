@@ -6,9 +6,13 @@ import '../assets/assets/vendor/css/theme-default.css';
 // import product_img from '../assets/assets/img/elements/4.jpg';
 import Button from '../tools/Button';
 import Image from 'next/image';
-import ButtonModal from './ButtonModal';
+import ButtonDetailAnnonce from './ButtonDetailAnnonce';
+import ButtonValiderAnnonce from './ButtonValiderAnnonce';
 
 function Product({ annonce, images }) {
+
+    const [session, setSession] = useState(null);
+    const [error, setError] = useState(null);
 
     const [mainImageIndex, setMainImageIndex] = useState(0);
 
@@ -19,6 +23,15 @@ function Product({ annonce, images }) {
         });
         return montantFormate;
     }
+
+    useEffect(() => {
+        const storedSessionString = localStorage.getItem("userSession");
+        if (storedSessionString) {
+          const sess = JSON.parse(storedSessionString);
+          setSession(sess);
+        }
+  
+      }, []);
 
     const handleImageClick = (index) => {
         setMainImageIndex(index);
@@ -49,41 +62,8 @@ function Product({ annonce, images }) {
                     <h6 className="card-subtitle text-muted text-center">{annonce.description}</h6>
                 </div>
                 <div className='d-flex justify-content-evenly'>
-                    <Button couleur_theme='btn btn-success' label="valider" fonction={() => handleStockClick()} />
-                    <ButtonModal clazz='btn btn-info' label="detail" idModal="#modalCenter" annonce={annonce} />
-                    {/* modal */}
-                    <div className="modal fade" id="modalCenter" tabindex="-1" style={{display: 'none'}} aria-hidden="true">
-                        <div className="modal-dialog modal-dialog-centered" role="document">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h5 className="modal-title" id="modalCenterTitle">Modal title</h5>
-                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div className="modal-body">
-                                    <div className="row">
-                                        <div className="col mb-3">
-                                            <label for="nameWithTitle" className="form-label">Name</label>
-                                        </div>
-                                    </div>
-                                    <div className="row g-2">
-                                        <div className="col mb-0">
-                                            <label for="emailWithTitle" className="form-label">Email</label>
-                                        </div>
-                                        <div className="col mb-0">
-                                            <label for="dobWithTitle" className="form-label">DOB</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                        Close
-                                    </button>
-                                    <button type="button" className="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {/* fin modal */}
+                    <ButtonValiderAnnonce clazz='btn btn-success' label="valider" idModal="#modalValider" annonce={annonce} />
+                    <ButtonDetailAnnonce clazz='btn btn-info' label="detail" idModal="#modalCenter" annonce={annonce} />
                 </div>
             </div>
         </div>
