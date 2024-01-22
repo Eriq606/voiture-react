@@ -1,6 +1,6 @@
 'use client';
 
-import send_raw from '@/app/utils/Sender';
+import send_raw from '../../utils/Sender';
 import { redirect } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useRouter } from 'next/navigation';

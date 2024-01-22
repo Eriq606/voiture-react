@@ -15,8 +15,7 @@ import Image from "react-bootstrap/Image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import Product from "../../../tools/Product";
-import getAllAnnonces from "@/app/tools/dataTest/listeAnnonce";
-import get from "@/app/utils/Getter";
+import get from "../../../utils/Getter";
 import Alert from 'react-bootstrap/Alert';
 import { useState, useEffect } from "react";
 

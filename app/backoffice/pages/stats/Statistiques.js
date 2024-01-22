@@ -11,7 +11,7 @@ import {
   CardBody,
 } from "react-bootstrap";
 import Alert from 'react-bootstrap/Alert';
-import send_raw from '@/app/utils/Sender';
+import send_raw from '../../../utils/Sender';
 import Spinner from 'react-bootstrap/Spinner';
 
 export default function Statistiques() {

@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
-import send_raw from '@/app/utils/Sender';
+import send_raw from '../../utils/Sender';
 
 export default function Login () {
 
