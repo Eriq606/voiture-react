@@ -3,7 +3,7 @@ import styles from "./connectmobile.module.css";
 export default function ConnectMobileForm(){
     return(<>
         <Col md={{span:6, offset:3}} className={styles.connectmobileform}>
-            <p>Entrer le code d'authentification</p>
+            <p>Entrer le code d&apos;authentification</p>
             <Form>
                 <Form.Control type="text" placeholder="Code..."></Form.Control>
                 <br></br>
