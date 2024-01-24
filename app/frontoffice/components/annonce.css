@@ -1,4 +1,4 @@
-.annonce{
+/* .annonce{
     border: gray solid 1px;
     border-radius: 2.5%;
     padding: 25px;
@@ -103,4 +103,25 @@
 .annonce__modal__footer__contactbutton{
     padding: 10px;
     font-size: larger;
+} */
+
+.annonce-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1vh;
+}
+.carousel-control{
+    color: black;
+}
+.carousel-item img{
+    object-fit: contain;
+}
+.card-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.favori label{
+    color: var(--light);
 }

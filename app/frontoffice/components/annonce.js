@@ -1,95 +1,43 @@
-'use client';
-
-import Image from "next/image";
-import styles from "./annonce.module.css";
-import { useState } from "react";
-import ReactModal from "react-modal";
-import { NumericFormat } from "react-number-format";
-import { BsArrowLeft, BsArrowRight, BsX } from "react-icons/bs";
-import { Button, Form } from "react-bootstrap";
+import "./annonce.css";
 export default function Annonce({annonce}){
-    const [showModal, setShowModal] = useState(false);
-    const [currentImgIndex, setCurrentImgIndex] = useState(0);
-    function prevImageIndex(){
-        setCurrentImgIndex(currentImgIndex>0?currentImgIndex-1:annonce.listePhotos.length-1);
-    }
-    function nextImageIndex(){
-        setCurrentImgIndex(currentImgIndex<annonce.listePhotos.length-1?currentImgIndex+1:0);
-    }
-    function openModal(){
-        setShowModal(true);
-    }
-    function closeModal(){
-        setShowModal(false);
-    }
-    const [currentImg, setCurrentImg] = useState(annonce.listePhotos.length>0?annonce.listePhotos[currentImgIndex].repertoire:"/voiture.jpeg");
-    function prevImage(){
-        if(annonce.listePhotos.length>0){
-            prevImageIndex();
-            setCurrentImg(annonce.listePhotos[currentImgIndex].repertoire);
-        }
-    }
-    function nextImage(){
-        if(annonce.listePhotos.length>0){
-            nextImageIndex();
-            setCurrentImg(annonce.listePhotos[currentImgIndex].repertoire);
-        }
-    }
-    const [favori, setFavori] = useState(annonce.favoris);
-    function changeFavori(){
-        setFavori(!favori);
-    }
     return(<>
-        <div className={styles.annonce}>
-            <div className={styles.annonce__cardheader}>
-                <p>{annonce.proprietaire.email}</p>
-                <p>{annonce.dateHeureCreation}</p>
-            </div>
-            <p>Voiture : {annonce.marque.nomMarque} {annonce.modele.nomModele} {annonce.couleur.nomCouleur}</p>
-            <div className={styles.annonce__cardfooter}>
-                <div className={styles.annonce__cardfooter__favori}>
-                    <Form.Check // prettier-ignore
-                        type={"checkbox"}
-                        id={`default-checkbox`}
-                        label={`Favori`}
-                        defaultChecked={favori}
-                        onClick={changeFavori}
-                    />
+        <div className="col-4">
+            <div className="card">
+                <div className="card-header annonce-header">
+                    <h6>{annonce.proprietaire.email}</h6>
+                    <h6>{annonce.dateHeureCreation}</h6>
                 </div>
-                {/* <button className={styles.annonce__cardfooter__details} onClick={openModal}>Details</button> */}
-                <Button variant="primary" onClick={() => setShowModal(true)}>
-                    Details
-                </Button>
-                <ReactModal
-                    isOpen={showModal}
-                    onRequestClose={closeModal}
-                    className={styles.annonce__modal}
-                    overlayClassName={styles.annonce__modal__overlay}>
-                    <div className={styles.annonce__modal__header}>
-                        <button onClick={closeModal} className={styles.annonce__modal__header__closebutton}><BsX></BsX></button>
-                    </div>
-                    <div className={styles.annonce__modal__body}>
-                        <p className={styles.annonce__modal__body__title}>Details annonce</p>
-                        <br></br>
-                        <p>{annonce.proprietaire.email}</p>
-                        <br></br>
-                        <p><span className={styles.annonce__modal__body__label}>Description:</span> {annonce.description}</p>
-                        <p><span className={styles.annonce__modal__body__label}>Categorie:</span> {annonce.categorie.nomCategorie}</p>
-                        <p><span className={styles.annonce__modal__body__label}>Modele:</span> {annonce.modele.nomModele}</p>
-                        <p><span className={styles.annonce__modal__body__label}>Marque:</span> {annonce.marque.nomMarque}</p>
-                        <p><span className={styles.annonce__modal__body__label}>Type </span>occasion: {annonce.typeOccasion.nomTypeOccasion}</p>
-                        <p><span className={styles.annonce__modal__body__label}>Couleur:</span> {annonce.couleur.nomCouleur}</p>
-                        <p><span className={styles.annonce__modal__body__label}>Prix:</span> <NumericFormat value={annonce.prix.toFixed(2)} displayType="text" thousandSeparator={' '} decimalSeparator="," suffix={' Ar'} /></p>
-                        <div className={styles.annonce__modal__body__images}>
-                            <button className={styles.annonce__modal__body__images__imgbutton} onClick={prevImage}><BsArrowLeft/></button>
-                            <Image src={currentImg} width={300} height={200} alt="Car picture" className={styles.annonce__modal__body__images__image}></Image>
-                            <button className={styles.annonce__modal__body__images__imgbutton} onClick={nextImage}><BsArrowRight/></button>
+                <div className="card-body">
+                    <div id={"annonce"+annonce.idAnnonce} className="carousel slide">
+                        <div className="carousel-inner">
+                            {annonce.listePhotos.map((photo, index)=>{
+                                let itemclassName=index===0?"carousel-item active":"carousel-item";
+                                return(<>
+                                    <div key={index} className={itemclassName}>
+                                        <img src={photo.repertoire} className="d-block" width={"100%"} height={"350vh"} alt="..."/>
+                                    </div>
+                                </>);
+                            })}
                         </div>
+                        <button className="carousel-control-prev carousel-control" type="button" data-bs-target={"#annonce"+annonce.idAnnonce} data-bs-slide="prev">
+                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span className="visually-hidden">Previous</span>
+                        </button>
+                        <button className="carousel-control-next carousel-control" type="button" data-bs-target={"#annonce"+annonce.idAnnonce} data-bs-slide="next">
+                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span className="visually-hidden">Next</span>
+                        </button>
                     </div>
-                    <div className={styles.annonce__modal__footer}>
-                        <button className={styles.annonce__modal__footer__contactbutton}>Contacter</button>
+                </div>
+                <div className="card-footer">
+                    <div class="form-check favori">
+                        <input class="form-check-input" type="checkbox" value="" id={"favori"+annonce.idAnnonce} defaultChecked={annonce.favoris}/>
+                        <label class="form-check-label" for={"favori"+annonce.idAnnonce}>
+                            Checked checkbox
+                        </label>
                     </div>
-                </ReactModal>
+                    <button type="button" class="btn btn-primary m-2">Details</button>
+                </div>
             </div>
         </div>
     </>);

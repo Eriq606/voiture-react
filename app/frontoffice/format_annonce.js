@@ -45,11 +45,11 @@ export const reponse={
             description: "Toyota Sedan en vente, excellente condition.",
             etats: [],
             etatAnnonce: 1,
-            favoris:true,
+            favoris:false,
             dateHeureCreation:"2021-11-12 19:02"
         },
         {
-            idAnnonce: 1,
+            idAnnonce: 2,
             proprietaire: {
                 idUtilisateur: 2,
                 email: "u1@gmail.com",
@@ -83,7 +83,7 @@ export const reponse={
                 },
                 {
                     idPhoto: 2,
-                    repertoire: "/voiture2.jpeg"
+                    repertoire: "/voiture.jpeg"
                 }
             ],
             prix: 2.5E7,

@@ -72,13 +72,13 @@ export default function Categories() {
             <Col>
               {error && (<Alert key='warning' variant='warning'>{error}</Alert>)}
               <form onSubmit={handleSubmit}>
-                <div class="input-group">
-                  <span class="input-group-text" id="basic-addon11">
+                <div className="input-group">
+                  <span className="input-group-text" id="basic-addon11">
                     nom
                   </span>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     placeholder="entrez le nom de la categorie"
                     aria-label="entrez le nom de la categorie"
                     aria-describedby="basic-addon11"

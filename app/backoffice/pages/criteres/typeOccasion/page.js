@@ -70,13 +70,13 @@ export default function TypeOccasions() {
             <Col>
               {error && (<Alert key='warning' variant='warning'>{error}</Alert>)}
               <form onSubmit={handleSubmit}>
-                <div class="input-group">
-                  <span class="input-group-text" id="basic-addon11">
+                <div className="input-group">
+                  <span className="input-group-text" id="basic-addon11">
                     nom
                   </span>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     placeholder="entrez le nom du Type Occasion"
                     aria-label="entrez le nom du Type Occasion"
                     aria-describedby="basic-addon11"

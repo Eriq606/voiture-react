@@ -1,6 +1,0 @@
-.listeannonce{
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 1%;
-    padding: 1%;
-}

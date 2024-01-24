@@ -1,4 +1,4 @@
-.listeannonce__header{
+/* .listeannonce__header{
     background-color: cornflowerblue;
     display: flex;
     align-items: flex-end;
@@ -22,4 +22,12 @@
 .listeannonce__header__button{
     margin-top: 2vh;
     height: 4.5vh;
+} */
+/* AJOUT TEMPLATE */
+.bouton__filtre{
+    height: min-content;
+}
+.filtre{
+    display: flex;
+    align-items: flex-end;
 }
