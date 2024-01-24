@@ -11,7 +11,7 @@ export default function SideBar(){
                         <div className="nav-item dropdown">
                             <Link href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i className="bi bi-card-list me-2"></i>Annonces</Link>
                             <div className="dropdown-menu bg-transparent border-0">
-                                <Link href="/frontoffice/listeannonce" className="dropdown-item">Liste d'annonces</Link>
+                                <Link href="/frontoffice/listeannonce" className="dropdown-item">Liste d&apos;annonces</Link>
                                 <Link href="/frontoffice/historique" className="dropdown-item">Mes annonces</Link>
                                 <Link href="/frontoffice/favoris" className="dropdown-item">Favoris</Link>
                             </div>
