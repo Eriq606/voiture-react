@@ -22,7 +22,7 @@ export default function Annonce({annonce}){
                                 let itemclassName=index===0?"carousel-item active":"carousel-item";
                                 return(<>
                                     <div key={index} className={itemclassName}>
-                                        <Image src={photo.repertoire} className="d-block" width={"100%"} height={"350vh"} alt="..."/>
+                                        <img src={photo.repertoire} className="d-block" width={"100%"} height={"350vh"} alt="..."/>
                                     </div>
                                 </>);
                             })}
