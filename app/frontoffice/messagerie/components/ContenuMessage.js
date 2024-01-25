@@ -26,7 +26,7 @@ export default function ContenuMessage({messagerie, current_user}){
         </Col> */}
         <div className="col-9">
             <div className="row contenu__message">
-                <div class="h-100 bg-secondary rounded p-4">
+                <div className="h-100 bg-secondary rounded p-4">
                     {messagerie.map((message, index)=>{
                         classname_bubble=message.envoyeur.idUtilisateur==current_user.utilisateur.idUtilisateur?"col-6 my__bubble offset-6":"col-6 other__bubble";
                         return(<>
@@ -43,7 +43,12 @@ export default function ContenuMessage({messagerie, current_user}){
             <br></br>
             <div className="row zone__textemessage">
                 <div className="bg-secondary rounded" style={{padding:"1%"}}>
-                    <p>Hello</p>
+                    <div className="row">
+                        <div className="col-11">
+                            <input type="text" className="form-control input__envoi" id="prixmin"/>
+                        </div>
+                        <button type="button" className="col-1 btn btn-info bouton__envoyer input__envoi">Envoyer</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -36,21 +36,21 @@ export default function Annonce({annonce}){
                     </div>
                 </div>
                 <div className="card-footer">
-                    <div class="form-check favori">
-                        <input class="form-check-input" type="checkbox" value="" id={"favori"+annonce.idAnnonce} defaultChecked={annonce.favoris}/>
-                        <label class="form-check-label" for={"favori"+annonce.idAnnonce}>
+                    <div className="form-check favori">
+                        <input className="form-check-input" type="checkbox" value="" id={"favori"+annonce.idAnnonce} defaultChecked={annonce.favoris}/>
+                        <label className="form-check-label" for={"favori"+annonce.idAnnonce}>
                             Checked checkbox
                         </label>
                     </div>
-                    <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#detailsannonce">Details</button>
-                    <div class="modal fade" id="detailsannonce" tabindex="-1" aria-labelledby="detailsannonceLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="detailsannonceLabel">Details de l&apos;annonce</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" className="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#detailsannonce">Details</button>
+                    <div className="modal fade" id="detailsannonce" tabIndex="-1" aria-labelledby="detailsannonceLabel" aria-hidden="true">
+                        <div className="modal-dialog modal-dialog-centered">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                            <h1 className="modal-title fs-5" id="detailsannonceLabel">Details de l&apos;annonce</h1>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
+                            <div className="modal-body">
                             <p style={{textAlign:"end"}}>Le {annonce.dateHeureCreation}</p>
                             <p>{annonce.proprietaire.email}</p>
                             <p>{annonce.description}</p>
@@ -65,9 +65,9 @@ export default function Annonce({annonce}){
                             <br></br>
                             <p><strong>Prix:</strong> {getMoneyFormat(annonce.prix)}</p>
                             </div>
-                            <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                            <button type="button" class="btn btn-primary">Contacter</button>
+                            <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <button type="button" className="btn btn-primary">Contacter</button>
                             </div>
                         </div>
                         </div>

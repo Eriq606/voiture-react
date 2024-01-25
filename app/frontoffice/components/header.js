@@ -10,7 +10,7 @@ export default function Header(){
                         <p className="select__label">Categorie</p>
                         <select className="form-select" id="categorie"
                             aria-label="Floating label select example">
-                            <option selected>Tous</option>
+                            <option >Tous</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
@@ -20,7 +20,7 @@ export default function Header(){
                         <p className="select__label">Modele</p>
                         <select className="form-select" id="modele"
                             aria-label="Floating label select example">
-                            <option selected>Tous</option>
+                            <option >Tous</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
@@ -30,7 +30,7 @@ export default function Header(){
                         <p className="select__label">Marque</p>
                         <select className="form-select" id="marque"
                             aria-label="Floating label select example">
-                            <option selected>Tous</option>
+                            <option >Tous</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>

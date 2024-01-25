@@ -69,8 +69,11 @@
     background-color: rgb(135, 177, 255);
 }
 .contenu__message{
-    height: 75vh;
+    height: 85vh;
 }
 .zone__textemessage{
-    height: 17.5vh;
+    height: 5vh;
+}
+.input__envoi{
+    height: 5vh;
 }

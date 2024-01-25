@@ -17,9 +17,31 @@ export default function SideBar(){
                             </div>
                         </div>
                         <Link href="/frontoffice/messagerie" className="nav-item nav-link"><i className="bi bi-chat-fill me-2"></i>Messagerie</Link>
-                        <Link href="/frontoffice/connectmobile" className="nav-item nav-link"><i className="bi bi-phone-fill me-2"></i>Se connecter avec mobile</Link>
+                        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i className="bi bi-phone-fill me-2"></i>Se connecter avec mobile
+                        </button>
                     </div>
                 </nav>
+            </div>
+            <div className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                        <h1 className="modal-title fs-5" id="exampleModalLabel">Se connecter par mobile</h1>
+                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                            <div class="mb-3">
+                                <label for="codemobile" class="form-label">Code d&apos;authentification</label>
+                                <input type="email" class="form-control" id="codemobile"/>
+                            </div>
+                        </div>
+                        <div className="modal-footer">
+                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                        <button type="button" className="btn btn-primary">Se connecter</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     );

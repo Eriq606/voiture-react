@@ -1,19 +1,21 @@
-// import { Col } from "react-bootstrap";
-// import Header from "../components/header";
-// import { reponse } from "../format_annonce";
-// import styles from "../listeannonce.module.css";
-// import AnnonceHistorique from "./components/AnnonceHistorique";
-
+import { reponse } from "../format_annonce";
+import Header from "../components/header";
+import AnnonceHistorique from "./components/AnnonceHistorique";
 export default function Page(){
-    // const annonces=reponse.donnee;
-    return(<>
-        {/* <Col md={9}>
-            <Header></Header>
-            <div className={styles.listeannonce}>
-                {annonces.map((annonce)=>{
-                    return <AnnonceHistorique key={annonce.idAnnonce} annonce={annonce}></AnnonceHistorique>
-                })}
+  const annonces=reponse.donnee;
+    return (
+        <>
+        <div className="content">
+          <div className="container-fluid pt-4 px-4">
+            <Header/>
+            <br></br>
+            <div className="row g-4">
+              {annonces.map((annonce, index)=>{
+                return(<AnnonceHistorique key={index} annonce={annonce}/>)
+              })}
             </div>
-        </Col> */}
-    </>);
+          </div>
+        </div>
+        </>
+    );
 }
