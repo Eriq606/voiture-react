@@ -1,4 +1,6 @@
+import Image from "next/image";
 import "../../components/annonce.css";
+import "../../assets/css/style.css";
 export default function AnnonceHistorique({annonce}){
     const getMoneyFormat = (number) => {
         return  number.toLocaleString('mg-MG', {
@@ -20,7 +22,7 @@ export default function AnnonceHistorique({annonce}){
                                 let itemclassName=index===0?"carousel-item active":"carousel-item";
                                 return(<>
                                     <div key={index} className={itemclassName}>
-                                        <img src={photo.repertoire} className="d-block" width={"100%"} height={"350vh"} alt="..."/>
+                                        <Image src={photo.repertoire} className="d-block" width={"100%"} height={"350vh"} alt="..."/>
                                     </div>
                                 </>);
                             })}

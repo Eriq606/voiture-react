@@ -1,4 +1,5 @@
 import Link from "next/link";
+import "../assets/css/style.css";
 export default function SideBar(){
     return(
         <>
