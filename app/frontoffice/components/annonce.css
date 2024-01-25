@@ -125,3 +125,9 @@
 .favori label{
     color: var(--light);
 }
+.modal{
+    color: rgb(201, 201, 201);
+}
+.modal strong{
+    color: white;
+}

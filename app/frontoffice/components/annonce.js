@@ -1,5 +1,11 @@
 import "./annonce.css";
 export default function Annonce({annonce}){
+    const getMoneyFormat = (number) => {
+        return  number.toLocaleString('mg-MG', {
+            style: 'currency',
+            currency: 'MGA',
+          });
+    };
     return(<>
         <div className="col-4">
             <div className="card">
@@ -36,7 +42,36 @@ export default function Annonce({annonce}){
                             Checked checkbox
                         </label>
                     </div>
-                    <button type="button" class="btn btn-primary m-2">Details</button>
+                    <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#detailsannonce">Details</button>
+                    <div class="modal fade" id="detailsannonce" tabindex="-1" aria-labelledby="detailsannonceLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="detailsannonceLabel">Details de l&apos;annonce</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                            <p style={{textAlign:"end"}}>Le {annonce.dateHeureCreation}</p>
+                            <p>{annonce.proprietaire.email}</p>
+                            <p>{annonce.description}</p>
+                            <p>Caracteristiques:</p>
+                            <ul>
+                                <li><strong>Categorie:</strong> {annonce.categorie.nomCategorie}</li>
+                                <li><strong>Modele:</strong> {annonce.modele.nomModele}</li>
+                                <li><strong>Marque:</strong> {annonce.marque.nomMarque}</li>
+                                <li><strong>Couleur:</strong> {annonce.couleur.nomCouleur}</li>
+                                <li><strong>Type occasion:</strong> {annonce.typeOccasion.nomTypeOccasion}</li>
+                            </ul>
+                            <br></br>
+                            <p><strong>Prix:</strong> {getMoneyFormat(annonce.prix)}</p>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <button type="button" class="btn btn-primary">Contacter</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

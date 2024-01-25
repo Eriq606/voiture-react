@@ -1,4 +1,4 @@
-.contenumessage{
+/* .contenumessage{
     height: 100vh;
     background-color: rgb(156, 156, 156);
 }
@@ -55,4 +55,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
+} */
+.bubble{
+    padding: 0.5%;
+    padding-left: 1%;
+    padding-top: 1%;
+    color: var(--dark);
+}
+.other__bubble{
+    background-color: rgb(197, 197, 197);
+}
+.my__bubble{
+    background-color: rgb(135, 177, 255);
+}
+.contenu__message{
+    height: 75vh;
+}
+.zone__textemessage{
+    height: 17.5vh;
 }

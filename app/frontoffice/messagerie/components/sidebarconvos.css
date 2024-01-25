@@ -1,4 +1,4 @@
-.sidebarconvos{
+/* .sidebarconvos{
     border-right: solid 1px cornflowerblue;
     height: 100vh;
 }
@@ -16,4 +16,14 @@
 .sidebarconvos__conversation__item:hover{
     background-color: rgba(128, 128, 128, 0.555);
     cursor: pointer;
+} */
+.message__item{
+    line-height: 4.5vh;
+}
+.message__item:hover{
+    cursor: pointer;
+    background-color: var(--light);
+}
+.message__item:hover small, .message__item:hover span{
+    color: black;
 }
