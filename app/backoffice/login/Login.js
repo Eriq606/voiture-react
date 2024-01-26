@@ -29,7 +29,7 @@ export default function Login () {
           console.log(session);
           if(session.code == '200') {
             const sessionString = JSON.stringify(session);
-            localStorage.setItem('userSession', sessionString);
+            sessionStorage.setItem('userSession', sessionString);
             setTimeout(async () => {
                 setWait(false);
                 router.push("/backoffice/pages");

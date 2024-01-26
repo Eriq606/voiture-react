@@ -1,7 +1,7 @@
 import Image from "next/image";
 import "./annonce.css";
 import "../assets/css/style.css";
-export default function Annonce({annonce}){
+export default function Annonce({key, annonce}){
     const getMoneyFormat = (number) => {
         return  number.toLocaleString('mg-MG', {
             style: 'currency',

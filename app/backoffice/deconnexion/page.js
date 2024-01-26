@@ -9,9 +9,11 @@ export default function Deconnexion(){
     const router = useRouter();
 
     useEffect(() => {
-        const storedSessionString = localStorage.getItem("userSession");
+        const storedSessionString = sessionStorage.getItem("userSession");
         if (storedSessionString) {
           const sess = JSON.parse(storedSessionString);
+          sessionStorage.removeItem("userSession");
+          console.log('session removed');
           logout(sess);
         }
       }, []);

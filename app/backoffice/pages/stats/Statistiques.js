@@ -24,7 +24,7 @@ export default function Statistiques() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-      const storedSessionString = localStorage.getItem("userSession");
+      const storedSessionString = sessionStorage.getItem("userSession");
       if (storedSessionString) {
         const sess = JSON.parse(storedSessionString);
         setSession(sess);

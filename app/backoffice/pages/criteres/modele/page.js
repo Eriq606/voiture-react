@@ -23,7 +23,7 @@ export default function Modeles() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const storedSessionString = localStorage.getItem("userSession");
+    const storedSessionString = sessionStorage.getItem("userSession");
     if (storedSessionString) {
       const sess = JSON.parse(storedSessionString);
       setSession(sess);
