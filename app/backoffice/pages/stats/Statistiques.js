@@ -13,6 +13,9 @@ import {
 import Alert from 'react-bootstrap/Alert';
 import send_raw from '../../../utils/Sender';
 import Spinner from 'react-bootstrap/Spinner';
+import { Bar } from "react-chartjs-2";
+import {CategoryScale} from 'chart.js'; 
+import Chart from 'chart.js/auto';
 
 export default function Statistiques() {
 
@@ -36,6 +39,7 @@ export default function Statistiques() {
             const stat = reponse.donnee;
             console.log(stat);
             setStatistique(stat);
+            console.log([statistique.minCommission, statistique.moyenneCommission, statistique.maxCommission]);
           } else {
             setError(reponse.message);
           }
@@ -53,13 +57,13 @@ export default function Statistiques() {
     };
 
     return (
-    <Container className="h-100">
+    <Container>
       {error && (<Alert key='warning' variant='warning'>{error}</Alert>)}
       <Card className="h-100">
         <CardHeader>
           <strong>Statistiques</strong>
         </CardHeader>
-        <CardBody className="h-90">
+        <CardBody style={{ height:'fit-content' }}>
           {(statistique != null) && (
             <>
             <Row className="h-50 mb-1">
@@ -84,12 +88,12 @@ export default function Statistiques() {
               </Card>
             </Col>
           </Row>
-          <Row className="h-50">
+          <Row style={{ height: 'fit-content'}} >
           <Col>
-              <Card className="h-100" bg="light">
+              <Card className="h-100" >
                 <CardHeader><h2>Commission par annonce</h2></CardHeader>
                 <CardBody>
-                    <Row className="h-100 d-flex align-items-center">
+                    {/* <Row className="h-100 d-flex align-items-center">
                         <Col className="d-flex flex-column">
                             <div className="text-center">
                                 <h6>Minimum</h6>
@@ -114,7 +118,51 @@ export default function Statistiques() {
                                 <h3>{isNaN(statistique.chiffreAffaire) ? (<Spinner animation="border" variant="light" />) : `${getMoneyFormat(Number(statistique.maxCommission))}`}</h3>
                             </div>
                         </Col>
-                    </Row>
+                    </Row> */}
+                    <div className="App">
+                      <div className="w-100 h-100">
+                          <Bar
+                              data={{
+                                  // Name of the variables on x-axies for each bar
+                                  labels: [`Minimum ${getMoneyFormat(Number(statistique.minCommission))}`, `Moyenne ${getMoneyFormat(Number(statistique.moyenneCommission))}`, `Maximum ${getMoneyFormat(Number(statistique.maxCommission))}`],
+                                  datasets: [
+                                      {
+                                          // Label for bars
+                                          label: ['statistique de la commission'],
+                                          // Data or value of your each variable
+                                          data: [statistique.minCommission, statistique.moyenneCommission, statistique.maxCommission],
+                                          // Color of each bar
+                                          backgroundColor: 
+                                              ["rgba(255, 99, 132, 0.2)", "rgba(252, 252, 86, 0.2)", "rgba(54, 162, 235, 0.2)"],
+                                          // Border color of each bar
+                                          borderColor: ["rgba(255, 99, 132, 1)", "rgba(252, 252, 86, 1)", "rgba(54, 162, 235, 1)"],
+                                          borderWidth: 0.5,
+                                      },
+                                  ],
+                              }}
+                              // Height of graph
+                              height={400}
+                              options={{
+                                  maintainAspectRatio: false,
+                                  scales: {
+                                      yAxes: [
+                                          {
+                                              ticks: {
+                                            // The y-axis value will start from zero
+                                                  beginAtZero: true,
+                                              },
+                                          },
+                                      ],
+                                  },
+                                  legend: {
+                                      labels: {
+                                          fontSize: 15,
+                                      },
+                                  },
+                              }}
+                          />
+                      </div>
+                  </div>
                 </CardBody>
               </Card>
             </Col>
