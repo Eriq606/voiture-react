@@ -1,7 +1,44 @@
 import Image from "next/image";
 import "./annonce.css";
 import "../assets/css/style.css";
-export default function Annonce({key, annonce}){
+import send_formData_post from '../../utils/SenderFormDataPost';
+import { useState, useEffect } from "react";
+export default function Annonce({key, annonce, logged}){
+
+    const [session, setSession] = useState(null);
+
+    useEffect(() => {
+        const storedSessionString = sessionStorage.getItem("userSession");
+        if (storedSessionString) {
+          const sess = JSON.parse(storedSessionString);
+          setSession(sess);
+        } 
+    
+    }, []);
+
+    const handleFavoris = (isFavoris, idAnnonce) => {
+        const formData = new FormData();
+        formData.append('idUtilisateur', session.donnee.utilisateur.idUtilisateur.toString());
+        formData.append('idAnnonce', idAnnonce.toString());
+        if(isFavoris == true) { //enlever favoris
+            send_formData_post(
+                `https://vente-occaz-production.up.railway.app/api/v1/annonces/enleverFavoris`,
+                formData,
+                session.donnee.token
+            ).then((reponse) => {
+                console.log('enlever favoris OK ! '+ reponse);
+            });
+        } else { // mettre en favoris
+            send_formData_post(
+                `https://vente-occaz-production.up.railway.app/api/v1/annonces/mettreFavoris`,
+                formData,
+                session.donnee.token
+            ).then((reponse) => {
+                console.log('mettre favoris OK ! '+ reponse);
+            });
+        }
+    }
+
     const getMoneyFormat = (number) => {
         return  number.toLocaleString('mg-MG', {
             style: 'currency',
@@ -38,14 +75,14 @@ export default function Annonce({key, annonce}){
                     </div>
                 </div>
                 <div className="card-footer">
-                    <div className="form-check favori">
-                        <input className="form-check-input" type="checkbox" value="" id={"favori"+annonce.idAnnonce} defaultChecked={annonce.favoris}/>
+                    {logged && (<div className="form-check favori">
+                        <input className="form-check-input" type="checkbox" value="" id={"favori"+annonce.idAnnonce} onChange={() => {handleFavoris(annonce.favoris, annonce.idAnnonce)}} defaultChecked={annonce.favoris}/>
                         <label className="form-check-label" for={"favori"+annonce.idAnnonce}>
-                            Checked checkbox
+                            Favoris
                         </label>
-                    </div>
-                    <button type="button" className="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#detailsannonce">Details</button>
-                    <div className="modal fade" id="detailsannonce" tabIndex="-1" aria-labelledby="detailsannonceLabel" aria-hidden="true">
+                    </div>)}
+                    <button type="button" className="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target={"#detailsannonce"+annonce.idAnnonce}>Details</button>
+                    <div className="modal fade" id={"detailsannonce"+annonce.idAnnonce} tabIndex="-1" aria-labelledby="detailsannonceLabel" aria-hidden="true">
                         <div className="modal-dialog modal-dialog-centered">
                         <div className="modal-content">
                             <div className="modal-header">
