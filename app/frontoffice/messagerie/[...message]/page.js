@@ -1,9 +1,12 @@
+'use client';
+
 import { response_messagerie } from "../format_user";
 import ContenuMessage from "../components/ContenuMessage";
 import { curruser } from "../../../format_curruser";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
+import get from '../../../utils/Getter';
 
 export default function Page({params}){
     const sender=params.message[0];
@@ -21,7 +24,7 @@ export default function Page({params}){
           setCurrent_user(sess.donnee);
 
           get(
-            `https://vente-occaz-production.up.railway.app/api/v1/messageries/${sender}/${receiver}`,
+            `https://vente-occaz-production-nomena.up.railway.app/api/v1/messageries/${sender}/${receiver}`,
              sess.donnee.token
           ).then(reponse => {
             if(reponse.code == '200') {
@@ -37,6 +40,6 @@ export default function Page({params}){
     return(<>
         {wait && (<Spinner animation="border" variant="success" />)}
         {error && (<Alert key='warning' variant='warning'>{error}</Alert>)}
-        {messagerie && (<ContenuMessage messagerie={messagerie.echanges} current_user={current_user} ></ContenuMessage>)}
+        {messagerie && (<ContenuMessage messagerie={messagerie.echanges} current_user={current_user} idRecepteur={receiver} ></ContenuMessage>)}
     </>);
 }

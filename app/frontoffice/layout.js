@@ -1,3 +1,5 @@
+'use client';
+
 import SideBar from "./components/SideBar";
 import "./assets/css/bootstrap.min.css";
 import "./assets/css/style.css";

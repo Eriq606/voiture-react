@@ -1,3 +1,4 @@
+'use client';
 import Link from "next/link";
 import "./sidebarconvos.css";
 export default function SideBarConvos({messagerie, current_user}){

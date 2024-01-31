@@ -29,7 +29,7 @@ export default function Couleurs() {
       setSession(sess);
       
       //statistique
-      getAllCriteres("https://vente-occaz-production.up.railway.app/api/v1", sess.donnee.token).then(reponse => {
+      getAllCriteres("https://vente-occaz-production-nomena.up.railway.app/api/v1", sess.donnee.token).then(reponse => {
           const criteres = reponse;
           console.log(criteres);
           setAllCouleur(criteres.couleurs);
@@ -50,7 +50,7 @@ export default function Couleurs() {
     const raw = {
       nomCouleur : newCouleur 
     }
-    send_raw_post('https://vente-occaz-production.up.railway.app/api/v1/couleurs', raw, session.donnee.token).then((reponse) => {
+    send_raw_post('https://vente-occaz-production-nomena.up.railway.app/api/v1/couleurs', raw, session.donnee.token).then((reponse) => {
       if(reponse.code != '200') {
         setError(reponse.message);
       } else {

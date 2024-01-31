@@ -24,7 +24,7 @@ export default function Annonce({key, annonce, logged}){
         formData.append('idAnnonce', idAnnonce.toString());
         if(isFavoris == true) { //enlever favoris
             send_formData_post(
-                `https://vente-occaz-production.up.railway.app/api/v1/annonces/enleverFavoris`,
+                `https://vente-occaz-production-nomena.up.railway.app/api/v1/annonces/enleverFavoris`,
                 formData,
                 session.donnee.token
             ).then((reponse) => {
@@ -32,7 +32,7 @@ export default function Annonce({key, annonce, logged}){
             });
         } else { // mettre en favoris
             send_formData_post(
-                `https://vente-occaz-production.up.railway.app/api/v1/annonces/mettreFavoris`,
+                `https://vente-occaz-production-nomena.up.railway.app/api/v1/annonces/mettreFavoris`,
                 formData,
                 session.donnee.token
             ).then((reponse) => {
@@ -54,7 +54,7 @@ export default function Annonce({key, annonce, logged}){
         formData.append('idEnvoyeur', session.donnee.utilisateur.idUtilisateur.toString());
         formData.append('idReceveur', idProprietaire.toString());
         send_formData_post(
-            `https://vente-occaz-production.up.railway.app/api/v1/contacts`,
+            `https://vente-occaz-production-nomena.up.railway.app/api/v1/contacts`,
             formData,
             session.donnee.token
         ).then((reponse) => {

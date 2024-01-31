@@ -1,3 +1,5 @@
+'use client';
+
 import { curruser } from "../../format_curruser";
 import { response_messagerie } from "./format_user";
 import SideBarConvos from "./components/SidebarConvos";
@@ -21,7 +23,7 @@ export default function Layout({ children }) {
       setCurrent_user(sess.donnee);
 
       get(
-        `https://vente-occaz-production.up.railway.app/api/v1/contacts/${sess.donnee.utilisateur.idUtilisateur}`,
+        `https://vente-occaz-production-nomena.up.railway.app/api/v1/contacts/${sess.donnee.utilisateur.idUtilisateur}`,
         sess.donnee.token
       ).then((reponse) => {
         if (reponse.code == "200") {

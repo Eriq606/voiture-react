@@ -22,7 +22,7 @@ export default function SideBar(){
             const sessionActuelle = JSON.parse(sessionActuelleStr);
             formData.append('code', sessionActuelle.donnee.code.toString());
             try {
-                const session = await send_formData("https://vente-occaz-production.up.railway.app/api/v1/login-by-code", formData, null);
+                const session = await send_formData("https://vente-occaz-production-nomena.up.railway.app/api/v1/login-by-code", formData, null);
                 console.log('session '+session);
                 if(session.code == '200') {
                     if(session.donnee.isConnected == 1) {
@@ -60,7 +60,7 @@ export default function SideBar(){
       console.log(formData);
       try {
           setWait(true);
-          const session = await send_formData("https://vente-occaz-production.up.railway.app/api/v1/login-by-code", formData, null);
+          const session = await send_formData("https://vente-occaz-production-nomena.up.railway.app/api/v1/login-by-code", formData, null);
           console.log(session);
           if(session.code == '200') {
             const sessionString = JSON.stringify(session);

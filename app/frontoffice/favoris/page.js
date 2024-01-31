@@ -20,7 +20,7 @@ export default function ListeAnnonce(){
   const setAllAnnoncesHistorique = (sess) => {
     try {
       get(
-        `https://vente-occaz-production.up.railway.app/api/v1/annonces/favoris/${sess.donnee.utilisateur.idUtilisateur}`,
+        `https://vente-occaz-production-nomena.up.railway.app/api/v1/annonces/favoris/${sess.donnee.utilisateur.idUtilisateur}`,
         sess.donnee.token
       ).then(reponse => {
         if (reponse && typeof reponse === 'object' && 'code' in reponse) {

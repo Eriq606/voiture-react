@@ -29,7 +29,7 @@ export default function Marques() {
       setSession(sess);
       
       //statistique
-      getAllCriteres("https://vente-occaz-production.up.railway.app/api/v1", sess.donnee.token).then(reponse => {
+      getAllCriteres("https://vente-occaz-production-nomena.up.railway.app/api/v1", sess.donnee.token).then(reponse => {
           const criteres = reponse;
           console.log(criteres);
           setAllMarque(criteres.marques);
@@ -50,7 +50,7 @@ export default function Marques() {
     const raw = {
       nomMarque : newMarque 
     }
-    send_raw_post('https://vente-occaz-production.up.railway.app/api/v1/marques', raw, session.donnee.token).then((reponse) => {
+    send_raw_post('https://vente-occaz-production-nomena.up.railway.app/api/v1/marques', raw, session.donnee.token).then((reponse) => {
       if(reponse.code != '200') {
         setError(reponse.message);
       } else {

@@ -1,3 +1,4 @@
+'use client';
 import Link from "next/link";
 import "./sidebarconvos.css";
 export default function ListeContacts({contacts, current_user}){
@@ -8,7 +9,7 @@ export default function ListeContacts({contacts, current_user}){
                     <h6 className="mb-0">Messages</h6>
                 </div>
                 {contacts.map((contact, index)=>{
-                    return(<Link key={index} href={"/frontoffice/messagerie/"+current_user.utilisateur+"/"+contact.idUtilisateur}>
+                    return(<Link key={index} href={"/frontoffice/messagerie/"+current_user.utilisateur.idUtilisateur+"/"+contact.idUtilisateur}>
                         <div className="d-flex align-items-center border-bottom py-3 message__item">
                             <div className="w-100 ms-3">
                                 <div className="d-flex w-100 justify-content-between">

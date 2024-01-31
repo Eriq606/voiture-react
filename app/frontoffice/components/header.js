@@ -42,7 +42,7 @@ export default function Header({annonces = [], setAnnonces = () => {}}){
 
     useEffect(() => {
           
-          getAllCriteres("https://vente-occaz-production.up.railway.app/api/v1/no-auth", null).then(reponse => {
+          getAllCriteres("https://vente-occaz-production-nomena.up.railway.app/api/v1/no-auth", null).then(reponse => {
               const criteres = reponse;
               setAllCriteres(criteres);
           });
