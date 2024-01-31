@@ -3,8 +3,10 @@ import "./annonce.css";
 import "../assets/css/style.css";
 import send_formData_post from '../../utils/SenderFormDataPost';
 import { useState, useEffect } from "react";
+import { useRouter } from 'next/navigation';
 export default function Annonce({key, annonce, logged}){
 
+    const router = useRouter();
     const [session, setSession] = useState(null);
 
     useEffect(() => {
@@ -45,6 +47,26 @@ export default function Annonce({key, annonce, logged}){
             currency: 'MGA',
           });
     };
+
+
+    const handleContact = (idProprietaire) => {
+        const formData = new FormData();
+        formData.append('idEnvoyeur', session.donnee.utilisateur.idUtilisateur.toString());
+        formData.append('idReceveur', idProprietaire.toString());
+        send_formData_post(
+            `https://vente-occaz-production.up.railway.app/api/v1/contacts`,
+            formData,
+            session.donnee.token
+        ).then((reponse) => {
+            if(reponse.code == '200') {
+                console.log('ajout contact OK ! '+ reponse);
+                setTimeout(async () => {
+                    router.push(`/frontoffice/messagerie/${session.donnee.utilisateur.idUtilisateur}/${idProprietaire}`);
+                }, 1000);
+            }
+        });
+    }
+
     return(<>
         <div className="col-4">
             <div className="card">
@@ -106,7 +128,7 @@ export default function Annonce({key, annonce, logged}){
                             </div>
                             <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                            <button type="button" className="btn btn-primary">Contacter</button>
+                            <button type="button" onClick={() => {handleContact(annonce.proprietaire.idUtilisateur)}} className="btn btn-primary">Contacter</button>
                             </div>
                         </div>
                         </div>
