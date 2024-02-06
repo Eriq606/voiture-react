@@ -35,7 +35,7 @@ function ValiderAnnonce(props) {
             formData.append('pourcentageCommission', commission);
             formData.append('idAdmin', session.donnee.utilisateur.idUtilisateur);
             send_formData_post(
-                `https://vente-occaz-production-nomena.up.railway.app/api/v1/annonces/validation`,
+                `https://vente-occaz-production-de3d.up.railway.app/api/v1/annonces/validation`,
                 formData,
                 session.donnee.token
               ).then((reponse) => {

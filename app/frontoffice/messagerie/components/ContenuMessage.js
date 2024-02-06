@@ -10,7 +10,7 @@ export default function ContenuMessage({messagerie, current_user, idRecepteur}){
         happendMessage(newMessage);
         const raw = newMessage;
         try {
-            put(`https://vente-occaz-production-nomena.up.railway.app/api/v1/messageries/${current_user.utilisateur.idUtilisateur}/${idRecepteur}`,
+            put(`https://vente-occaz-production-de3d.up.railway.app/api/v1/messageries/${current_user.utilisateur.idUtilisateur}/${idRecepteur}`,
                 raw,
                 current_user.token
             ).then(reponse => {

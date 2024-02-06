@@ -18,7 +18,7 @@ export default function ListeAnnonce(){
   const setAllAnnonceWithLogin = (sess) => {
     try {
       get(
-        `https://vente-occaz-production-nomena.up.railway.app/api/v1/annonces/non-vendues-nofiltre-etat-favori/${sess.donnee.utilisateur.idUtilisateur}`,
+        `https://vente-occaz-production-de3d.up.railway.app/api/v1/annonces/non-vendues-nofiltre-etat-favori/${sess.donnee.utilisateur.idUtilisateur}`,
         sess.donnee.token
       ).then(reponse => {
         if (reponse && typeof reponse === 'object' && 'code' in reponse) {
@@ -46,7 +46,7 @@ export default function ListeAnnonce(){
 
   const setAllAnnonceNoLogin = () => {
     get(
-      "https://vente-occaz-production-nomena.up.railway.app/api/v1/annonces/non-vendues-nofiltre",
+      "https://vente-occaz-production-de3d.up.railway.app/api/v1/annonces/non-vendues-nofiltre",
       null
     ).then(reponse => {
       if(reponse.code == '200') {

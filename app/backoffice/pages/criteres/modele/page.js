@@ -29,7 +29,7 @@ export default function Modeles() {
       setSession(sess);
       
       //statistique
-      getAllCriteres("https://vente-occaz-production-nomena.up.railway.app/api/v1", sess.donnee.token).then(reponse => {
+      getAllCriteres("https://vente-occaz-production-de3d.up.railway.app/api/v1", sess.donnee.token).then(reponse => {
           const criteres = reponse;
           console.log(criteres);
           setAllModele(criteres.modeles);
@@ -50,7 +50,7 @@ export default function Modeles() {
     const raw = {
       nomModele : newModele 
     }
-    send_raw_post('https://vente-occaz-production-nomena.up.railway.app/api/v1/modeles', raw, session.donnee.token).then((reponse) => {
+    send_raw_post('https://vente-occaz-production-de3d.up.railway.app/api/v1/modeles', raw, session.donnee.token).then((reponse) => {
       if(reponse.code != '200') {
         setError(reponse.message);
       } else {

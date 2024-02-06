@@ -24,7 +24,7 @@ export default function Page({params}){
           setCurrent_user(sess.donnee);
 
           get(
-            `https://vente-occaz-production-nomena.up.railway.app/api/v1/messageries/${sender}/${receiver}`,
+            `https://vente-occaz-production-de3d.up.railway.app/api/v1/messageries/${sender}/${receiver}`,
              sess.donnee.token
           ).then(reponse => {
             if(reponse.code == '200') {

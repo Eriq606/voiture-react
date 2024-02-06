@@ -45,7 +45,7 @@ export default function Validation() {
         
         //statistique
         get(
-          "https://vente-occaz-production-nomena.up.railway.app/api/v1/annonces/non-validees",
+          "https://vente-occaz-production-de3d.up.railway.app/api/v1/annonces/non-validees",
           sess.donnee.token
         ).then(reponse => {
           if(reponse.code == '200') {

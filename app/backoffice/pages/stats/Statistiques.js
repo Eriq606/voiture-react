@@ -31,7 +31,7 @@ export default function Statistiques() {
         
         //statistique
         send_raw(
-          "https://vente-occaz-production-nomena.up.railway.app/api/v1/admin/statistiqueDefaut",
+          "https://vente-occaz-production-de3d.up.railway.app/api/v1/admin/statistiqueDefaut",
           {},
           sess.donnee.token
         ).then(reponse => {

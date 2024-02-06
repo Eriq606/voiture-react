@@ -23,7 +23,7 @@ export default function Layout({ children }) {
       setCurrent_user(sess.donnee);
 
       get(
-        `https://vente-occaz-production-nomena.up.railway.app/api/v1/contacts/${sess.donnee.utilisateur.idUtilisateur}`,
+        `https://vente-occaz-production-de3d.up.railway.app/api/v1/contacts/${sess.donnee.utilisateur.idUtilisateur}`,
         sess.donnee.token
       ).then((reponse) => {
         if (reponse.code == "200") {

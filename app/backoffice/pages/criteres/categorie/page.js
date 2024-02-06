@@ -31,7 +31,7 @@ export default function Categories() {
       setSession(sess);
       
       //statistique
-      getAllCriteres("https://vente-occaz-production-nomena.up.railway.app/api/v1", sess.donnee.token).then(reponse => {
+      getAllCriteres("https://vente-occaz-production-de3d.up.railway.app/api/v1", sess.donnee.token).then(reponse => {
           const criteres = reponse;
           console.log(criteres);
           setAllCategorie(criteres.categories);
@@ -52,7 +52,7 @@ export default function Categories() {
     const raw = {
       nomCategorie : newCategorie 
     }
-    send_raw_post('https://vente-occaz-production-nomena.up.railway.app/api/v1/categories', raw, session.donnee.token).then((reponse) => {
+    send_raw_post('https://vente-occaz-production-de3d.up.railway.app/api/v1/categories', raw, session.donnee.token).then((reponse) => {
       if(reponse.code != '200') {
         setError(reponse.message);
       } else {

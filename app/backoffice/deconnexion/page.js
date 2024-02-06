@@ -23,7 +23,7 @@ export default function Deconnexion(){
           const token = session.donnee.token;
           console.log('log out '+token);
           const reponse = await send_raw(
-            "https://vente-occaz-production-nomena.up.railway.app/api/v1/logout",
+            "https://vente-occaz-production-de3d.up.railway.app/api/v1/logout",
             {},
             token
           );
