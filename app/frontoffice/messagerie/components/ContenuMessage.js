@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./contenumessage.css";
 import put from '../../../utils/Putter';
 export default function ContenuMessage({messagerie, current_user, idRecepteur}){
-    let classname_bubble;
+    let classname_bubble, sender_name, label_offset;
     const [newMessage, setNewMessage] = useState('');
     
     const handleEnvoiMessage = async () => {
@@ -45,9 +45,12 @@ export default function ContenuMessage({messagerie, current_user, idRecepteur}){
                 <div className="h-100 bg-secondary rounded p-4" id="contenu-message">
                     {messagerie.map((message, index)=>{
                         classname_bubble=message.envoyeur.idUtilisateur==current_user.utilisateur.idUtilisateur?"col-6 my__bubble offset-6":"col-6 other__bubble";
+                        sender_name=message.envoyeur.idUtilisateur==current_user.utilisateur.idUtilisateur?"Moi":message.envoyeur.email;
+                        label_offset=message.envoyeur.idUtilisateur==current_user.utilisateur.idUtilisateur?"offset-6":"";
                         return(<>
                             <div className="row">
-                                <div className={classname_bubble+" bubble rounded"}>
+                                <label className={label_offset} htmlFor={"bubble"+index}>{sender_name}</label>
+                                <div id={"bubble"+index} className={classname_bubble+" bubble rounded"}>
                                     <p>{message.texte}</p>
                                 </div>
                             </div>
