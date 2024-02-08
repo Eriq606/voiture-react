@@ -20,6 +20,9 @@
 .message__item{
     line-height: 4.5vh;
 }
+.message__item--active{
+    background-color: rgb(145, 145, 145);
+}
 .message__item:hover{
     cursor: pointer;
     background-color: var(--light);
