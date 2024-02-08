@@ -53,7 +53,7 @@ function Product({ annonce, images }) {
     return (
         <div>
             <div className="card-body">
-                <img className="img-fluid d-flex mx-auto" style={{ height: '30vh', widt: '60vw' }} src={annonce.listePhotos[mainImageIndex].repertoire} alt="Card cap" />
+                { annonce.listePhotos.length > 0 && (<img className="img-fluid d-flex mx-auto" style={{ height: '30vh', widt: '60vw' }} src={annonce.listePhotos[mainImageIndex].repertoire} alt="Card cap" />) }
                 <div className='d-flex justify-content-around m-auto' style={{ height: '8vh', width: '70%' }}>
                     {liste_images}
                 </div>
