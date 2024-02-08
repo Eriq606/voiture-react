@@ -25,11 +25,11 @@ export default function Login () {
       console.log(raw);
       try {
           setWait(true);
-          const session = await send_raw("https://vente-occaz-production.up.railway.app/api/v1/login-admin", raw, null);
+          const session = await send_raw("https://vente-occaz-production-de3d.up.railway.app/api/v1/login-admin", raw, null);
           console.log(session);
           if(session.code == '200') {
             const sessionString = JSON.stringify(session);
-            localStorage.setItem('userSession', sessionString);
+            sessionStorage.setItem('userSession', sessionString);
             setTimeout(async () => {
                 setWait(false);
                 router.push("/backoffice/pages");

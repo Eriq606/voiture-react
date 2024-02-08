@@ -1,7 +1,7 @@
 import Image from "next/image";
 import "../../components/annonce.css";
 import "../../assets/css/style.css";
-export default function AnnonceHistorique({annonce}){
+export default function HistoriqueAnnonce({key, annonce, logged}){
     const getMoneyFormat = (number) => {
         return  number.toLocaleString('mg-MG', {
             style: 'currency',
@@ -38,14 +38,14 @@ export default function AnnonceHistorique({annonce}){
                     </div>
                 </div>
                 <div className="card-footer">
-                    <div className="form-check favori">
+                    {logged && (<div className="form-check favori">
                         <input className="form-check-input" type="checkbox" value="" id={"favori"+annonce.idAnnonce} defaultChecked={annonce.favoris}/>
-                        <label className="form-check-label" htmlFor={"favori"+annonce.idAnnonce}>
-                            Checked checkbox
+                        <label className="form-check-label" for={"favori"+annonce.idAnnonce}>
+                            Favoris
                         </label>
-                    </div>
-                    <button type="button" className="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#detailsannonce">Details</button>
-                    <div className="modal fade" id="detailsannonce" tabIndex="-1" aria-labelledby="detailsannonceLabel" aria-hidden="true">
+                    </div>)}
+                    <button type="button" className="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target={"#detailsannonce"+annonce.idAnnonce}>Details</button>
+                    <div className="modal fade" id={"detailsannonce"+annonce.idAnnonce} tabIndex="-1" aria-labelledby="detailsannonceLabel" aria-hidden="true">
                         <div className="modal-dialog modal-dialog-centered">
                         <div className="modal-content">
                             <div className="modal-header">

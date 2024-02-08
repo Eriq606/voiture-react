@@ -9,9 +9,11 @@ export default function Deconnexion(){
     const router = useRouter();
 
     useEffect(() => {
-        const storedSessionString = localStorage.getItem("userSession");
+        const storedSessionString = sessionStorage.getItem("userSession");
         if (storedSessionString) {
           const sess = JSON.parse(storedSessionString);
+          sessionStorage.removeItem("userSession");
+          console.log('session removed');
           logout(sess);
         }
       }, []);
@@ -21,7 +23,7 @@ export default function Deconnexion(){
           const token = session.donnee.token;
           console.log('log out '+token);
           const reponse = await send_raw(
-            "https://vente-occaz-production.up.railway.app/api/v1/logout",
+            "https://vente-occaz-production-de3d.up.railway.app/api/v1/logout",
             {},
             token
           );

@@ -1,13 +1,72 @@
 import Image from "next/image";
 import "./annonce.css";
 import "../assets/css/style.css";
-export default function Annonce({annonce}){
+import send_formData_post from '../../utils/SenderFormDataPost';
+import { useState, useEffect } from "react";
+import { useRouter } from 'next/navigation';
+export default function Annonce({key, annonce, logged}){
+
+    const router = useRouter();
+    const [session, setSession] = useState(null);
+
+    useEffect(() => {
+        const storedSessionString = sessionStorage.getItem("userSession");
+        if (storedSessionString) {
+          const sess = JSON.parse(storedSessionString);
+          setSession(sess);
+        } 
+    
+    }, []);
+
+    const handleFavoris = (isFavoris, idAnnonce) => {
+        const formData = new FormData();
+        formData.append('idUtilisateur', session.donnee.utilisateur.idUtilisateur.toString());
+        formData.append('idAnnonce', idAnnonce.toString());
+        if(isFavoris == true) { //enlever favoris
+            send_formData_post(
+                `https://vente-occaz-production-de3d.up.railway.app/api/v1/annonces/enleverFavoris`,
+                formData,
+                session.donnee.token
+            ).then((reponse) => {
+                console.log('enlever favoris OK ! '+ reponse);
+            });
+        } else { // mettre en favoris
+            send_formData_post(
+                `https://vente-occaz-production-de3d.up.railway.app/api/v1/annonces/mettreFavoris`,
+                formData,
+                session.donnee.token
+            ).then((reponse) => {
+                console.log('mettre favoris OK ! '+ reponse);
+            });
+        }
+    }
+
     const getMoneyFormat = (number) => {
         return  number.toLocaleString('mg-MG', {
             style: 'currency',
             currency: 'MGA',
           });
     };
+
+
+    const handleContact = (idProprietaire) => {
+        const formData = new FormData();
+        formData.append('idEnvoyeur', session.donnee.utilisateur.idUtilisateur.toString());
+        formData.append('idReceveur', idProprietaire.toString());
+        send_formData_post(
+            `https://vente-occaz-production-de3d.up.railway.app/api/v1/contacts`,
+            formData,
+            session.donnee.token
+        ).then((reponse) => {
+            if(reponse.code == '200') {
+                console.log('ajout contact OK ! '+ reponse);
+                setTimeout(async () => {
+                    router.push(`/frontoffice/messagerie/${session.donnee.utilisateur.idUtilisateur}/${idProprietaire}`);
+                }, 1000);
+            }
+        });
+    }
+
     return(<>
         <div className="col-4">
             <div className="card">
@@ -38,14 +97,14 @@ export default function Annonce({annonce}){
                     </div>
                 </div>
                 <div className="card-footer">
-                    <div className="form-check favori">
-                        <input className="form-check-input" type="checkbox" value="" id={"favori"+annonce.idAnnonce} defaultChecked={annonce.favoris}/>
+                    {logged && (<div className="form-check favori">
+                        <input className="form-check-input" type="checkbox" value="" id={"favori"+annonce.idAnnonce} onChange={() => {handleFavoris(annonce.favoris, annonce.idAnnonce)}} defaultChecked={annonce.favoris}/>
                         <label className="form-check-label" for={"favori"+annonce.idAnnonce}>
-                            Checked checkbox
+                            Favoris
                         </label>
-                    </div>
-                    <button type="button" className="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#detailsannonce">Details</button>
-                    <div className="modal fade" id="detailsannonce" tabIndex="-1" aria-labelledby="detailsannonceLabel" aria-hidden="true">
+                    </div>)}
+                    <button type="button" className="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target={"#detailsannonce"+annonce.idAnnonce}>Details</button>
+                    <div className="modal fade" id={"detailsannonce"+annonce.idAnnonce} tabIndex="-1" aria-labelledby="detailsannonceLabel" aria-hidden="true">
                         <div className="modal-dialog modal-dialog-centered">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -69,7 +128,7 @@ export default function Annonce({annonce}){
                             </div>
                             <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                            <button type="button" className="btn btn-primary">Contacter</button>
+                            <button type="button" onClick={() => {handleContact(annonce.proprietaire.idUtilisateur)}} className="btn btn-primary">Contacter</button>
                             </div>
                         </div>
                         </div>
