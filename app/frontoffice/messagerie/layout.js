@@ -10,6 +10,7 @@ import get from "../../utils/Getter";
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
 import "./components/sidebarconvos.css";
+import Link from "next/link";
 export default function Layout({ children }) {
 
   const [contacts, setContacts] = useState(null);
