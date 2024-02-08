@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import get from "../../utils/Getter";
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
-import "./sidebarconvos.css";
+import "components/sidebarconvos.css";
 export default function Layout({ children }) {
 
   const [contacts, setContacts] = useState(null);
