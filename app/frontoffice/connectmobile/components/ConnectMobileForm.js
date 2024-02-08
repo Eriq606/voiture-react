@@ -1,3 +1,5 @@
+'use client';
+
 import { Button, Col, Form } from "react-bootstrap";
 import styles from "./connectmobile.module.css";
 import { useState } from "react";
