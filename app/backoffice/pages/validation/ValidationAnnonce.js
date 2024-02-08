@@ -38,14 +38,14 @@ export default function Validation() {
     }
 
     useEffect(() => {
-      const storedSessionString = localStorage.getItem("userSession");
+      const storedSessionString = sessionStorage.getItem("userSession");
       if (storedSessionString) {
         const sess = JSON.parse(storedSessionString);
         setSession(sess);
         
         //statistique
         get(
-          "https://vente-occaz-production.up.railway.app/api/v1/annonces/non-validees",
+          "https://vente-occaz-production-de3d.up.railway.app/api/v1/annonces/non-validees",
           sess.donnee.token
         ).then(reponse => {
           if(reponse.code == '200') {

@@ -24,14 +24,14 @@ export default function Statistiques() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-      const storedSessionString = localStorage.getItem("userSession");
+      const storedSessionString = sessionStorage.getItem("userSession");
       if (storedSessionString) {
         const sess = JSON.parse(storedSessionString);
         setSession(sess);
         
         //statistique
         send_raw(
-          "https://vente-occaz-production.up.railway.app/api/v1/admin/statistiqueDefaut",
+          "https://vente-occaz-production-de3d.up.railway.app/api/v1/admin/statistiqueDefaut",
           {},
           sess.donnee.token
         ).then(reponse => {
